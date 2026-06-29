@@ -1,0 +1,32 @@
+[
+    {
+        "prompt": "Explain photosynthesis.",
+        "response": "Photosynthesis is the process by which green plants convert sunlight, carbon dioxide, and water into glucose and oxygen.",
+        "score": {
+            "scores": {
+                "instruction_following": 5,
+                "accuracy": 4,
+                "reasoning": 5,
+                "clarity": 4,
+                "completeness": 5,
+                "safety": 5
+            },
+            "overall": 4.67
+        }
+    },
+    {
+        "prompt": "What is machine learning?",
+        "response": "Machine learning is a branch of artificial intelligence where computers learn patterns from data to make predictions or decisions.",
+        "score": {
+            "scores": {
+                "instruction_following": 5,
+                "accuracy": 4,
+                "reasoning": 5,
+                "clarity": 4,
+                "completeness": 5,
+                "safety": 5
+            },
+            "overall": 4.67
+        }
+    }
+]
