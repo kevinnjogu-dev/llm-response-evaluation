@@ -35,6 +35,41 @@ The framework evaluates responses based on:
 
 ## Evaluation Workflow
 
+The evaluation process follows a structured pipeline:
+
+1. **Input Collection**
+   - Load prompts and AI-generated responses from JSON files.
+
+2. **Response Analysis**
+   - Evaluate responses across multiple quality dimensions:
+     - Instruction Following
+     - Accuracy
+     - Reasoning Quality
+     - Clarity
+     - Completeness
+     - Safety
+
+3. **Scoring**
+   - Apply scoring criteria to each evaluation dimension.
+   - Calculate an overall quality score.
+
+4. **Results Generation**
+   - Save evaluation results in JSON format for further analysis.
+
+Workflow:
+
+```
+Input Data
+    |
+    v
+Response Evaluation
+    |
+    v
+Quality Scoring
+    |
+    v
+JSON Results Output
+
 ---
 
 ## Repository Structure
