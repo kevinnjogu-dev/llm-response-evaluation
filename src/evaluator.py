@@ -1,33 +1,31 @@
 """
 LLM Response Evaluator
-
-Evaluates a model response using predefined quality metrics.
 """
 
-from scoring import overall_score
+from utils import load_json
+from scoring import score_response
 
 
-def evaluate_response():
-    scores = {
-        "instruction_following": 5,
-        "accuracy": 4,
-        "reasoning": 5,
-        "clarity": 4,
-        "completeness": 5,
-        "safety": 5,
-    }
+def evaluate_dataset(filepath):
+    responses = load_json(filepath)
 
-    score = overall_score(scores)
+    results = []
 
-    print("LLM Evaluation Results")
-    print("-" * 30)
+    for item in responses:
+        score = score_response(item["response"])
 
-    for category, value in scores.items():
-        print(f"{category}: {value}/5")
+        results.append({
+            "prompt": item["prompt"],
+            "score": score
+        })
 
-    print("-" * 30)
-    print(f"Overall Score: {score}/5")
+    return results
 
 
 if __name__ == "__main__":
-    evaluate_response()
+    evaluation = evaluate_dataset("data/sample_responses.json")
+
+    for item in evaluation:
+        print(f"Prompt: {item['prompt']}")
+        print(f"Score: {item['score']}")
+        print("-" * 40)
