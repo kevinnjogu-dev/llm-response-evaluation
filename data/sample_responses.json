@@ -1,0 +1,10 @@
+[
+    {
+        "prompt": "Explain photosynthesis.",
+        "response": "Photosynthesis is the process by which green plants convert sunlight, carbon dioxide, and water into glucose and oxygen."
+    },
+    {
+        "prompt": "What is machine learning?",
+        "response": "Machine learning is a branch of artificial intelligence where computers learn patterns from data to make predictions or decisions."
+    }
+]
