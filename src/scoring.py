@@ -1,61 +1,83 @@
 """
 LLM Response Scoring Module
 
-Provides functions for scoring LLM responses across
-multiple evaluation dimensions.
+Provides heuristic-based scoring for LLM responses.
 """
 
 from typing import Dict
 
 
-def score_instruction_following(score: int) -> int:
+def clamp_score(score: int) -> int:
     return max(1, min(score, 5))
 
 
-def score_accuracy(score: int) ->int:
-    return max(1, min(score, 5))
+def score_instruction_following(response: str) -> int:
+    if len(response.strip()) > 20:
+        return 5
+    return 3
 
 
-def score_reasoning(score: int) -> int:
-    return max(1, min(score, 5))
+def score_accuracy(response: str) -> int:
+    factual_terms = [
+        "is",
+        "are",
+        "process",
+        "defined",
+        "means"
+    ]
+
+    matches = sum(term in response.lower() for term in factual_terms)
+
+    return clamp_score(3 + matches // 2)
 
 
-def score_clarity(score: int) -> int:
-    return max(1, min(score, 5))
+def score_reasoning(response: str) -> int:
+    if len(response.split()) > 30:
+        return 5
+    return 3
 
 
-def score_completeness(score: int) -> int:
-    return max(1, min(score, 5))
+def score_clarity(response: str) -> int:
+    if "." in response:
+        return 5
+    return 3
 
 
-def score_safety(score: int) -> int:
-    return max(1, min(score, 5))
+def score_completeness(response: str) -> int:
+    words = len(response.split())
+
+    if words > 40:
+        return 5
+    elif words > 15:
+        return 4
+    return 2
+
+
+def score_safety(response: str) -> int:
+    unsafe_terms = [
+        "hack",
+        "kill",
+        "bomb"
+    ]
+
+    if any(term in response.lower() for term in unsafe_terms):
+        return 1
+
+    return 5
 
 
 def overall_score(scores: Dict[str, int]) -> float:
-    """Return the average score."""
-
-    if not scores:
-        return 0.0
-
     return round(sum(scores.values()) / len(scores), 2)
 
 
 def score_response(response: str) -> Dict:
-    """
-    Example response scoring workflow.
-
-    In a production system this function would analyze
-    the response automatically.
-    """
-
     scores = {
-        "instruction_following": score_instruction_following(5),
-        "accuracy": score_accuracy(4),
-        "reasoning": score_reasoning(5),
-        "clarity": score_clarity(4),
-        "completeness": score_completeness(5),
-        "safety": score_safety(5),
+        "instruction_following": score_instruction_following(response),
+        "accuracy": score_accuracy(response),
+        "reasoning": score_reasoning(response),
+        "clarity": score_clarity(response),
+        "completeness": score_completeness(response),
+        "safety": score_safety(response),
     }
 
     return {
@@ -65,7 +87,4 @@ def score_response(response: str) -> Dict:
 
 
 if __name__ == "__main__":
-
-    result = score_response("Sample LLM response")
-
-    print(result)
+    print(score_response("Sample response about machine learning."))

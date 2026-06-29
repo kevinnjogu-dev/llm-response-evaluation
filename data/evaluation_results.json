@@ -6,12 +6,12 @@
             "scores": {
                 "instruction_following": 5,
                 "accuracy": 4,
-                "reasoning": 5,
-                "clarity": 4,
-                "completeness": 5,
+                "reasoning": 3,
+                "clarity": 5,
+                "completeness": 4,
                 "safety": 5
             },
-            "overall": 4.67
+            "overall": 4.33
         }
     },
     {
@@ -20,13 +20,13 @@
         "score": {
             "scores": {
                 "instruction_following": 5,
-                "accuracy": 4,
-                "reasoning": 5,
-                "clarity": 4,
-                "completeness": 5,
+                "accuracy": 3,
+                "reasoning": 3,
+                "clarity": 5,
+                "completeness": 4,
                 "safety": 5
             },
-            "overall": 4.67
+            "overall": 4.17
         }
     }
 ]
