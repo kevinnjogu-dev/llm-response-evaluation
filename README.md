@@ -127,6 +127,17 @@ The output contains:
 - Jupyter Notebook
 
 ---
+## Visualization
+
+The toolkit generates evaluation score visualizations to help analyze response quality.
+
+Example output:
+
+
+visualizations/score_distribution.png
+
+
+The visualization provides a quick overview of overall response scores across evaluated prompts.
 
 ## Future Improvements
 
