@@ -34,3 +34,76 @@ The framework evaluates responses based on:
 ---
 
 ## Evaluation Workflow
+
+---
+
+## Repository Structure
+
+---
+
+## Usage
+
+### 1. Prepare Evaluation Data
+
+Add prompts and AI-generated responses inside:
+
+Example:
+
+```json
+[
+    {
+        "prompt": "Explain photosynthesis.",
+        "response": "Photosynthesis is the process by which plants convert sunlight into energy."
+    }
+]
+```
+
+## 2. Run the Evaluator
+
+Execute:
+
+```bash
+python src/evaluator.py
+```
+
+---
+
+## 3. View Results
+
+The evaluated responses will be saved in:
+
+```
+data/evaluation_results.json
+```
+
+The output contains:
+
+- Individual evaluation scores
+- Quality dimension ratings
+- Overall response score
+
+---
+
+## Technologies
+
+- Python
+- JSON
+- Markdown
+- Jupyter Notebook
+
+---
+
+## Future Improvements
+
+- Add automated benchmark datasets
+- Integrate LLM-based evaluation models
+- Add visualization dashboards
+- Add human feedback comparison workflows
+
+---
+
+## Author
+
+**Kevin Njogu**
+
+AI Trainer | LLM Evaluator | Machine Learning Specialist
